@@ -3,8 +3,7 @@ from typing import List, Optional
 from fastapi import Depends, APIRouter
 
 from db import session
-from models import *
-from schemas import *
+from schemas.user import User
 from utils.auth import get_current_active_user
 
 router = APIRouter()

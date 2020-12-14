@@ -3,8 +3,7 @@ from sqlalchemy import Column, Integer, String, TEXT, TIMESTAMP, text
 from sqlalchemy.sql.functions import current_timestamp
 from pydantic import BaseModel
 
-from db import Base
-from db import ENGINE
+from db import Base, ENGINE
 
 class UserTable(Base):
     __tablename__ = 'users'
