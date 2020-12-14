@@ -1,13 +1,10 @@
 import sys, os
-
 from datetime import timedelta
 
 from fastapi import Depends, APIRouter, HTTPException, status
-
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 
 from db import session
-from models import *
 from schemas.token import Token
 from utils.auth import authenticate_user, create_access_token
 
