@@ -4,12 +4,12 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, scoped_session
 
-host = os.getenv('MYSQL_SERVER')
-database_name = os.getenv('MYSQL_DB')
-user_name = os.getenv('MYSQL_USER')
-password = os.getenv('MYSQL_PASSWORD')
+user_name = os.environ.get('MYSQL_USER')
+password = os.environ.get('MYSQL_PASSWORD')
+host = os.environ.get('MYSQL_SERVER')
+database_name = os.environ.get('MYSQL_DB')
 
-DATABASE = 'mysql://%s:%s@%s/%s?charset=utf8mb4' % (
+DATABASE = 'mysql://%s:%s@%s/%s?charset=utf8' % (
     user_name,
     password,
     host,

@@ -4,9 +4,9 @@ from datetime import timedelta
 from fastapi import Depends, APIRouter, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 
-from db import session
-from schemas.token import Token
-from utils.auth import authenticate_user, create_access_token
+from ..db import session
+from ..schemas.token import Token
+from ..utils.auth import authenticate_user, create_access_token
 
 ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv('ACCESS_TOKEN_EXPIRE_MINUTES'))
 

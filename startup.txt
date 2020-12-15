@@ -1,1 +1,1 @@
-python -m uvicorn --host 0.0.0.0 --chdir src/app main:app
+python -m uvicorn src.app.main:app --host 0.0.0.0
