@@ -1,4 +1,5 @@
 import os
+import sqlalchemy
 
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
@@ -9,12 +10,26 @@ password = os.environ.get('MYSQL_PASSWORD')
 host = os.environ.get('MYSQL_SERVER')
 database_name = os.environ.get('MYSQL_DB')
 
-DATABASE = 'mysql://%s:%s@%s/%s?charset=utf8' % (
-    user_name,
-    password,
-    host,
-    database_name,
-)
+DATABASE = ''
+if 'mysql.database.azure.com' in host:
+    DATABASE = sqlalchemy.engine.url.URL(
+        drivername="mysql+pymysql",
+        username=user_name,
+        password=password,
+        host=host,
+        port=3306,
+        database=database_name,
+        query={"ssl_ca": "/home/site/wwwroot/src/app/DigiCertGlobalRootCA.crt.pem"},
+    )
+else:
+    DATABASE = sqlalchemy.engine.url.URL(
+        drivername="mysql+pymysql",
+        username=user_name,
+        password=password,
+        host=host,
+        port=3306,
+        database=database_name,
+    )
 
 ENGINE = create_engine(
     DATABASE,
