@@ -6,8 +6,7 @@ from fastapi import FastAPI
 
 from starlette.middleware.cors import CORSMiddleware
 
-from db import session
-
+from .db import session
 from .routers import users, login
 from .middlewares import sample
 

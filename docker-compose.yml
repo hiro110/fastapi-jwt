@@ -34,7 +34,7 @@ services:
       - "8000:8000"
     volumes:
     #   - ./src:/usr/src/server
-    - ./src/app:/usr/src/server
+    - ./src:/usr/src/server
     networks:
       - local-net
 

@@ -19,7 +19,7 @@ if 'mysql.database.azure.com' in host:
         host=host,
         port=3306,
         database=database_name,
-        query={"ssl_ca": "/home/site/wwwroot/src/app/DigiCertGlobalRootCA.crt.pem"},
+        query={"ssl_ca": "/home/site/wwwroot/src/DigiCertGlobalRootCA.crt.pem"},
     )
 else:
     DATABASE = sqlalchemy.engine.url.URL(
