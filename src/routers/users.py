@@ -1,10 +1,16 @@
+import os
 from typing import List, Optional
 
 from fastapi import Depends, APIRouter
 
-from ..db import session
-from ..schemas.user import User
-from ..utils.auth import get_current_active_user
+if os.environ.get('ENVIRONMET') != 'production':
+    from db import session
+    from schemas.user import User
+    from utils.auth import get_current_active_user
+else:
+    from ..db import session
+    from ..schemas.user import User
+    from ..utils.auth import get_current_active_user
 
 router = APIRouter()
 

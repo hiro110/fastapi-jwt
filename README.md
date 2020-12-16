@@ -18,3 +18,7 @@ mysql -u user -p
 # Demo
 ## Document of API
 http://localhost:8000/docs
+
+
+# Todo
+モジュールの読み込みを環境によって振り分ける処理を実装しているが、廃止できないか検討したい
