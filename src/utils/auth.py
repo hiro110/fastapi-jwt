@@ -7,9 +7,16 @@ from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from jose import JWTError, jwt
 from passlib.context import CryptContext
 
-from ..db import session
-from ..models.user import UserTable
-from ..schemas.user import User, UserInDB
+if os.environ.get('ENVIRONMET') != 'production':
+    from db import session
+    from models.user import UserTable
+    from schemas.user import User, UserInDB
+else:
+    from ..db import session
+    from ..models.user import UserTable
+    from ..schemas.user import User, UserInDB
+
+
 
 # to get a string like this run:
 # openssl rand -hex 32
